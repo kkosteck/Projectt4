@@ -1,6 +1,5 @@
 #include "Cheese.hpp"
 #include <iostream>
-#include <vector>
 
 int Cheese::cheese_quantity = 0;
 

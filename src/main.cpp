@@ -1,9 +1,8 @@
 //Rafał Bosko, PROI projekt 3, sklep spożywczy
 #include <iostream>
+#include <cstdio>
+#include <stdexcept>
 #include "functions.hpp"
-#include "Meat.hpp"
-#include "Drinks.hpp"
-#include "Cheese.hpp"
 #include "Products.hpp"
 
 using namespace std;
@@ -25,38 +24,49 @@ int main()
 		cout << "[6] usun mieso" << endl;
 		cout << "[7] usun napoj" << endl;
 		cin >> choice;
-		switch(choice)
+		try
 		{
-		case 0:
-			products.clean();
-			products.~Products();
-			return 0;
-		case 1:
-			display(products);
+			switch(choice)
+			{
+			case 0:
+				products.clean();
+				products.~Products();
+				return 0;
+			case 1:
+				display(products);
+				cout <<endl<< "Kliknij dowolny klawisz aby kontynuować..." << endl;
+				getchar();
+				getchar();
+			break;
+			case 2:
+				products.add_cheese();
+			break;
+			case 3:
+				products.add_meat();
+			break;
+			case 4:
+				products.add_drinks();
+			break;
+			case 5:
+				products.rm_cheese();
+			break;
+			case 6:
+				products.rm_meat();
+			break;
+			case 7:
+				products.rm_drinks();
+			break;
+			default:
+			break;
+			}
+		}
+		catch(std::logic_error &err) 
+		{ 
+			cout << "\033[2J\033[1;1H";
+			cout << "Logic error: " << err.what() << endl; 
 			cout <<endl<< "Kliknij dowolny klawisz aby kontynuować..." << endl;
 			getchar();
 			getchar();
-		break;
-		case 2:
-			products.add_cheese();
-		break;
-		case 3:
-			products.add_meat();
-		break;
-		case 4:
-			products.add_drink();
-		break;
-		case 5:
-			products.rm_cheese();
-		break;
-		case 6:
-			products.rm_meat();
-		break;
-		case 7:
-			products.rm_drink();
-		break;
-		default:
-		break;
 		}
 	}
 	return 0;
