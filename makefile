@@ -25,7 +25,8 @@ clean:
 
 # Tests
 tester:
-	$(CC) $(CFLAGS) test/tester.cpp $(INC) $(LIB) -o bin/tester
+	@g++ -o test/testfile test/tester.cpp -lboost_unit_test_framework
+	@./test/testfile --log_level=test_suite
 
 # Spikes
 ticket:

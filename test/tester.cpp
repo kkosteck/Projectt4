@@ -1,8 +1,10 @@
 #define BOOST_TEST_DYN_LINK
-#define BOOST_TEST_MODULE Hello
+#define BOOST_TEST_MODULE Meat_Tests
 #include <boost/test/unit_test.hpp>
-#include <meat.hpp>
 
+#include "../include/Meat.hpp"
+
+#include "../src/Meat.cpp"
 
 BOOST_AUTO_TEST_CASE( quantityTest )
 {
