@@ -8,7 +8,7 @@ SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
 CFLAGS := -g -Wall
-LIB := -pthread -L lib -lboost_thread-mt -lboost_filesystem-mt -lboost_system-mt
+#LIB := -pthread -L lib -lboost_thread-mt -lboost_filesystem-mt -lboost_system-mt
 INC := -I include
 
 $(TARGET): $(OBJECTS)
@@ -25,7 +25,8 @@ clean:
 
 # Tests
 tester:
-	$(CC) $(CFLAGS) test/tester.cpp $(INC) $(LIB) -o bin/tester
+	@g++ -o test/testfile test/tester.cpp -lboost_unit_test_framework
+	@./test/testfile --log_level=test_suite
 
 # Spikes
 ticket:

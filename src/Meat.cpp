@@ -1,4 +1,4 @@
-#include "Meat.hpp"
+#include "../include/Meat.hpp"
 #include <iostream>
 
 int Meat::meat_quantity = 0;
