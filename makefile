@@ -8,7 +8,6 @@ SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
 CFLAGS := -g -Wall
-#LIB := -pthread -L lib -lboost_thread-mt -lboost_filesystem-mt -lboost_system-mt
 INC := -I include
 
 $(TARGET): $(OBJECTS)
@@ -24,12 +23,9 @@ clean:
 	@echo " $(RM) -r $(BUILDDIR) $(TARGETDIR)"; $(RM) -r $(BUILDDIR) $(TARGETDIR)
 
 # Tests
-tester:
-	@g++ -o test/testfile test/tester.cpp -lboost_unit_test_framework
-	@./test/testfile --log_level=test_suite
-
-# Spikes
-ticket:
-	$(CC) $(CFLAGS) spikes/ticket.cpp $(INC) $(LIB) -o bin/ticket
+test:
+	@g++ -o bin/testfile test/test.cpp -lboost_unit_test_framework
+	@./bin/testfile --log_level=test_suite
 
 .PHONY: clean
+.PHONY: test

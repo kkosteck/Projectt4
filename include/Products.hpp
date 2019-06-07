@@ -1,9 +1,9 @@
 #ifndef PRODUCTS_HPP
 #define PRODUCTS_HPP
 
-#include "Drinks.hpp"
-#include "Meat.hpp"
-#include "Cheese.hpp"
+#include "../include/Drinks.hpp"
+#include "../include/Meat.hpp"
+#include "../include/Cheese.hpp"
 #include <vector>
 
 class Products //super klasa trzymajaca produkty w jednym obiekcie i zarzadzajaca nimi

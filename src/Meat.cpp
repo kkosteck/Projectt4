@@ -3,16 +3,17 @@
 
 int Meat::meat_quantity = 0;
 
-Meat::Meat()
+Meat::Meat(std::istream& is, std::ostream& os)
 {
   meat_quantity++;
   std::string str;
   float flt;
-  std::cout << "Podaj nazwę mięsa:  "; std::cin >> str;  name = str;
-  std::cout << "Podaj producenta mięsa:  "; std::cin >> str;  producer = str;
-  std::cout << "Podaj cenę za opakowanie mięsa: (float) "; std::cin >> flt;  price_per_mass = flt;
-  std::cout << "Podaj ilość (kg) mięsa: (float) "; std::cin>>flt; mass = flt;
+  os << "Podaj nazwę mięsa:  "; is >> str;  name = str;
+  os << "Podaj producenta mięsa:  "; is >> str;  producer = str;
+  os << "Podaj cenę za opakowanie mięsa: (float) "; is >> flt;  price_per_mass = flt;
+  os << "Podaj ilość (kg) mięsa: (float) "; is>>flt; mass = flt;
 }
+
 Meat::~Meat()
 {
   meat_quantity--;
