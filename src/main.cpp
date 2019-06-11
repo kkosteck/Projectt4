@@ -1,4 +1,7 @@
-//Rafał Bosko, PROI projekt 3, sklep spożywczy
+/*Kacper Kostecki, 300236, projekt IV
+prowadzący: Wiktor Kuśmirek
+kontynuacja projektu Rafała Bosko
+*/
 #include <iostream>
 #include <cstdio>
 #include <stdexcept>
