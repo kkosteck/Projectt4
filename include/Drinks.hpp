@@ -4,12 +4,9 @@
 #include <iostream>
 class AllDrinks //klasa bazowa umożliwiająca zapisywanie różnych wariantów szablonu klasy Drinks do jednego kontenera
 {
-	private:
-		int type; // typ napoju (zwykly [1], ekskluzywny [0])
 	public: 
 		virtual ~AllDrinks() {};
-		int get_type() {return type;}
-		void set_type(int choice){type = choice;}
+		virtual void get_drink() const = 0;
 };
 
 template <typename T>
@@ -20,28 +17,37 @@ class Drinks : public AllDrinks		//soki, mleko etc...tanie,		trunki drogie
 		std::string producer;
 		T price_per_bottle;
 		std::string exp_date;
+		std::string type;
 
 	public:
 		//szablon klasy musi miec ciala funkcji w tym samym pliku
 		//funkcje sa analogiczne do Cheese.hpp (zwracanie konkretnych wartosci, wyswietlanie przez przeciazenie)
-		Drinks()
+		Drinks(int choice2)
 		{
 			T choice; std::string str;
 			std::cout << "nazwa napoju: "; std::cin >> str; name=str;
 			std::cout << "nazwa producenta: "; std::cin >> str; producer=str;
 			std::cout << "cena za butelkę: "; std::cin >> choice; price_per_bottle = choice;
 			std::cout << "data ważnośći napoju: "; std::cin >> str; exp_date=str;
+			if(choice2 == 1)
+				type = "zwykły";
+			else
+				type = "ekskluzywny";
 		}
 		std::string get_name() {return name;}
 		std::string get_producer() {return producer;}
 		std::string get_exp_date() {return exp_date;}
+		std::string get_type() {return type;}
 		
-		T get_price_per_bottle(){return price_per_bottle;}
-
-		friend std::ostream& operator<< (std::ostream& end, Drinks<T>& dr)
+		T get_price_per_bottle() {return price_per_bottle;}
+		
+		virtual void get_drink() const 	//funkcja analogiczna do operatora << klas cheese i meat
 		{
-		  return end << "Napoj: " << dr.get_name() << "  Producent: " << dr.get_producer() << std::endl
-		  << "Cena: " << dr.get_price_per_bottle() << "  Ilość: " << dr.get_exp_date();		
+			std::cout<< "Napoj: " << name;
+			std::cout<< "  Typ: " << type << std::endl;
+			std::cout<< "Producent: " << producer << std::endl;
+			std::cout<< "Cena: " << price_per_bottle;
+			std::cout<< "  Ilość: " << exp_date <<std::endl;
 		}
 };
 

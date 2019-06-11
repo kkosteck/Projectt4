@@ -113,7 +113,6 @@ void Products::rm_meat()
 }
 
 std::vector<AllDrinks *> Products::get_drinks()	{return drinks;}
-
 void Products::add_drinks()
 {
 	int choice;
@@ -121,16 +120,13 @@ void Products::add_drinks()
 	std::cin >> choice;
 	if(choice==1)
 	{
-		AllDrinks *drink = new Drinks<float>;
+		AllDrinks *drink = new Drinks<float>(choice);
 		drinks.push_back(drink);
-		drinks[drinks.size()-1]->set_type(choice);
-		
 	}
 	else if(choice == 2)
 	{
-		AllDrinks *drink = new Drinks<double>;
+		AllDrinks *drink = new Drinks<double>(choice);
 		drinks.push_back(drink);
-		drinks[drinks.size()-1]->set_type(choice);
 	}
 	else
 		throw std::logic_error( "Klasa napoju o tym numerze nie istnieje!");

@@ -2,7 +2,6 @@
 #define CHEESE_HPP
 
 #include <iostream>
-#include <vector>
 
 class Cheese
 {
@@ -11,14 +10,13 @@ class Cheese
 		std::string producer;		//nazwa producenta
 		float price_per_pckg;		//cena za paczke
 		std::string exp_date;			//data przydatnosci do spozycia
-		std::vector <char> c_name;
 		static int cheese_quantity; //licznik obiektow klasy
 
 	public:
 		Cheese(); //prosi uzytkownika o podanie danych i tworzy obiekt
 		//zakladam ze uzytkownik poda poprawne dane
 		~Cheese();
-		std::string get_name(); //zwraca nazwe
+		virtual std::string get_name(); //zwraca nazwe
 		void print_name();
 		std::string get_producer(); //zwraca producenta
 		float get_price_per_pckg();	//zwraca cene

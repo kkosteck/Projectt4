@@ -24,6 +24,7 @@ clean:
 
 # Tests
 test:
+	@mkdir -p $(TARGETDIR)
 	@g++ -o bin/testfile test/test.cpp -lboost_unit_test_framework
 	@./bin/testfile --log_level=test_suite
 

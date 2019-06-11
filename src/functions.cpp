@@ -27,16 +27,8 @@ void display(class Products prod)
 	if(dr.size() == 0)
 		std::cout << "Brak napojow" << std::endl<<std::endl;
 	else
-		for (unsigned int i=0; i< dr.size(); i++){
-			if(dr[i]->get_type() == 1){
-				Drinks<float> *tmp = dynamic_cast<Drinks<float> *>(dr[i]);
-				std::cout << *tmp << " Klasa: zwykly" << std::endl;
-			}
-			else{
-				Drinks<double> *tmp = dynamic_cast<Drinks<double> *>(dr[i]);
-				std::cout << *tmp << " Klasa: ekskluzywny" << std::endl;
-			}
-		}
+		for(unsigned int i=0; i<dr.size(); i++)
+			dr[i]->get_drink();
 }
 
 void display(class Cheese **ch)
@@ -60,15 +52,10 @@ void display(std::vector<AllDrinks *> dr)
 	if(dr.size() == 0)
 		std::cout << "Brak napojow" << std::endl<<std::endl;
 	else
-		for (unsigned int i=0; i< dr.size(); i++){
-			if(dr[i]->get_type() == 1){
-				Drinks<float> *tmp = dynamic_cast<Drinks<float> *>(dr[i]);
-				std::cout <<"Element: "<< i << std::endl << *tmp << " Klasa: zwykly"<<std::endl;
-			}
-			else{
-				Drinks<double> *tmp = dynamic_cast<Drinks<double> *>(dr[i]);
-				std::cout <<"Element: "<< i << std::endl << *tmp << " Klasa: ekskluzywny" << std::endl;
-			}
+		for(unsigned int i=0; i<dr.size(); i++)
+		{
+			std::cout <<"Element: "<< i << std::endl;
+			dr[i]->get_drink();
 		}
 }
 
