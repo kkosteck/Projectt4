@@ -118,10 +118,10 @@ void Products::add_drinks()
 	int choice, choice2;
 	std::cout << "Rodzaj napoju, 1-normalny 2-alkoholowy" << std::endl;
 	std::cin >> choice;
-	std::cout << "Klasa napoju, 1-zwykły  2-ekskluzywny" << std::endl;
-	std::cin >> choice2;
 	if(choice == 1)
 	{
+		std::cout << "Klasa napoju, 1-zwykły  2-ekskluzywny" << std::endl;
+		std::cin >> choice2;
 		if(choice2 == 1)
 		{
 			AllDrinks *drink = new StandardDrinks<float>(choice2);
@@ -137,6 +137,8 @@ void Products::add_drinks()
 	}
 	else if(choice == 2)
 	{
+		std::cout << "Klasa napoju, 1-zwykły  2-ekskluzywny" << std::endl;
+		std::cin >> choice2;
 		if(choice2 == 1)
 		{
 			AllDrinks *drink = new AlcoholicDrinks<float>(choice2);
@@ -151,7 +153,7 @@ void Products::add_drinks()
 			throw std::logic_error( "Klasa napoju o tym numerze nie istnieje!");
 	}
 	else
-		throw std::logic_error( "Klasa napoju o tym numerze nie istnieje!");
+		throw std::logic_error( "Rodzaj napoju o tym numerze nie istnieje!");
 }
 
 void Products::rm_drinks()

@@ -34,12 +34,6 @@ class AlcoholicDrinks : public AllDrinks		//soki, mleko etc...tanie,		trunki dro
 			else
 				type = "ekskluzywny";
 		}
-		std::string get_name() {return name;}
-		std::string get_producer() {return producer;}
-		std::string get_exp_date() {return exp_date;}
-		std::string get_type() {return type;}
-		
-		T get_price_per_bottle() {return price_per_bottle;}
 		
 		virtual void get_drink() const 	//funkcja analogiczna do operatora << klas cheese i meat
 		{
@@ -77,12 +71,6 @@ class StandardDrinks : public AllDrinks
 			else
 				type = "ekskluzywny";
 		}
-		std::string get_name() {return name;}
-		std::string get_producer() {return producer;}
-		std::string get_exp_date() {return exp_date;}
-		std::string get_type() {return type;}
-		
-		T get_price_per_bottle() {return price_per_bottle;}
 		
 		virtual void get_drink() const 	//funkcja analogiczna do operatora << klas cheese i meat
 		{
