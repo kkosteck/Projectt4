@@ -115,18 +115,40 @@ void Products::rm_meat()
 std::vector<AllDrinks *> Products::get_drinks()	{return drinks;}
 void Products::add_drinks()
 {
-	int choice;
-	std::cout << "Klasa napoju, 1-zwykły  2-ekskluzywny" << std::endl;
+	int choice, choice2;
+	std::cout << "Rodzaj napoju, 1-normalny 2-alkoholowy" << std::endl;
 	std::cin >> choice;
-	if(choice==1)
+	std::cout << "Klasa napoju, 1-zwykły  2-ekskluzywny" << std::endl;
+	std::cin >> choice2;
+	if(choice == 1)
 	{
-		AllDrinks *drink = new Drinks<float>(choice);
-		drinks.push_back(drink);
+		if(choice2 == 1)
+		{
+			AllDrinks *drink = new StandardDrinks<float>(choice2);
+			drinks.push_back(drink);
+		}
+		else if(choice2 == 2)
+		{
+			AllDrinks *drink = new StandardDrinks<double>(choice2);
+			drinks.push_back(drink);
+		}
+		else
+			throw std::logic_error( "Klasa napoju o tym numerze nie istnieje!");
 	}
 	else if(choice == 2)
 	{
-		AllDrinks *drink = new Drinks<double>(choice);
-		drinks.push_back(drink);
+		if(choice2 == 1)
+		{
+			AllDrinks *drink = new AlcoholicDrinks<float>(choice2);
+			drinks.push_back(drink);
+		}
+		else if(choice2 == 2)
+		{
+			AllDrinks *drink = new AlcoholicDrinks<double>(choice2);
+			drinks.push_back(drink);
+		}
+		else
+			throw std::logic_error( "Klasa napoju o tym numerze nie istnieje!");
 	}
 	else
 		throw std::logic_error( "Klasa napoju o tym numerze nie istnieje!");
